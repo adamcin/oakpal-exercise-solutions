@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.adaptto.oakpal</groupId>
+    <artifactId>oakpal-exercise-solutions</artifactId>
+    <packaging>opear</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <description>adaptTo Exercise Solutions</description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <oakpal.version>2.2.1</oakpal.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <!-- Maven Compiler Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>net.adamcin.oakpal</groupId>
+                <artifactId>oakpal-maven-plugin</artifactId>
+                <version>${oakpal.version}</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <planParams>
+                        <checks>
+                            <check>
+                                <name>sling-jcr-installer</name>
+                            </check>
+                            <check>
+                                <impl>oakpal.ComponentGroups</impl>
+                            </check>
+                        </checks>
+                        <slingNodeTypes>true</slingNodeTypes>
+                        <jcrNamespaces>
+                            <namespace>
+                                <prefix>crx</prefix>
+                                <uri>http://www.day.com/crx/1.0</uri>
+                            </namespace>
+                        </jcrNamespaces>
+                        <jcrPrivileges>
+                            <privilege>crx:replicate</privilege>
+                        </jcrPrivileges>
+                    </planParams>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>biz.netcentric.aem</groupId>
+                        <artifactId>aem-nodetypes</artifactId>
+                        <version>6.5.5.0</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+        <pluginManagement>
+            <plugins>
+                <!-- Maven Jar Plugin -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>3.1.2</version>
+                </plugin>
+                <!-- Maven Clean Plugin -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>3.0.0</version>
+                </plugin>
+                <!-- Maven Resources Plugin -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.0.2</version>
+                </plugin>
+                <!-- Maven Compiler Plugin -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.1</version>
+                </plugin>
+                <!-- Maven Installer Plugin -->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>2.5.2</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <!-- ====================================================================== -->
+    <!-- D E P E N D E N C I E S -->
+    <!-- ====================================================================== -->
+    <dependencies>
+        <dependency>
+            <groupId>net.adamcin.oakpal</groupId>
+            <artifactId>oakpal-core</artifactId>
+            <version>${oakpal.version}</version>
+        </dependency>
+    </dependencies>
+
+</project>
