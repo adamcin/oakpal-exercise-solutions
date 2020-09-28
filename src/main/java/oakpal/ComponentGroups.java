@@ -44,20 +44,20 @@ public class ComponentGroups extends SimpleProgressCheck {
             if (!node.hasProperty("componentGroup")) {
                 reporting(builder -> builder
                         .withPackage(packageId)
-                        .withDescription("component missing componentGroup property: " + path));
+                        .withDescription(path + ": component missing componentGroup property"));
             } else {
                 final String componentGroup = node.getProperty("componentGroup").getString();
                 if (path.startsWith("/apps/classic-app/components/form/") && !formGroups.contains(componentGroup)) {
                     reporting(builder -> builder
                             .withPackage(packageId)
-                            .withDescription(String.format("invalid group '%s' for form component (%s): ",
-                                    componentGroup, formGroups) + path)
+                            .withDescription(path + String.format(": invalid group '%s' for form component (%s)",
+                                    componentGroup, formGroups))
                     );
                 } else if (!validGroups.contains(componentGroup)) {
                     reporting(builder -> builder
                             .withPackage(packageId)
-                            .withDescription(String.format("invalid group '%s' for classic-app component (%s): ",
-                                    componentGroup, validGroups) + path)
+                            .withDescription(path + String.format(": invalid group '%s' for classic-app component (%s)",
+                                    componentGroup, validGroups))
                     );
                 }
             }

@@ -3,7 +3,7 @@ ADD . /app
 WORKDIR /app
 RUN bash -c "[ -f /app/target/oakpal-exercise-solutions-*.opear ] || mvn -B clean install"
 
-FROM adamcin/oakpal:2.2.1
+FROM adamcin/oakpal:2.2.2
 
 COPY --from=build /app/target/oakpal-exercise-solutions-*.opear /app/oakpal-exercise-solutions.opear
 

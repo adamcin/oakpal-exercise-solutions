@@ -12,7 +12,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <oakpal.version>2.2.1</oakpal.version>
+        <oakpal.version>2.2.2</oakpal.version>
     </properties>
 
     <build>
@@ -39,6 +39,12 @@
                             </check>
                             <check>
                                 <impl>oakpal.ComponentGroups</impl>
+                            </check>
+                            <check>
+                                <impl>oakpal.Clientlibs</impl>
+                            </check>
+                            <check>
+                                <impl>oakpal.TemplatePolicies</impl>
                             </check>
                         </checks>
                         <slingNodeTypes>true</slingNodeTypes>
